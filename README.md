@@ -32,6 +32,32 @@ flowchart TD
     E --> F([End])
 ```
 
+## Average
+
+```mermaid
+flowchart TD
+    A([Start]) --> B["Declare int n1, n2; double avg"]
+    B --> C[/"Enter two numbers (n1, n2)"/]
+    C --> D["avg = (n1 + n2) / 2.0"]
+    D --> E[/"Display 'Average = ' + avg"/]
+    E --> F([End])
+```
+
+## Arithmetic Operation
+
+```mermaid
+flowchart TD
+    A([Start]) --> B["Declare int n1, n2, sum, diff, multi; double div, rem"]
+    B --> C[/"Enter two numbers (n1, n2)"/]
+    C --> D["sum = n1 + n2"]
+    D --> E["diff = n1 - n2"]
+    E --> F["multi = n1 * n2"]
+    F --> G["div = (double) n1 / n2"]
+    G --> H["rem = n1 % n2"]
+    H --> I[/"Display Addition, Subtraction, Multiplication, Division, Remainder"/]
+    I --> J([End])
+```
+
 # Program Execution (Step by Step)
 
 ## Simple Interest — execution trace (sample input: p=1000, t=2, r=5)
@@ -99,3 +125,67 @@ flowchart TD
 | 1. Start | 1 | `main()` starts | — |
 | 2. Output | 2 | Print message | `Hello World!` |
 | 3. End | 3 | Program ends | — |
+
+## Average — execution trace (sample input: n1=10, n2=20)
+
+### Phase 1: Start & Declaration
+| Step | Action | Variable State |
+|------|--------|----------------|
+| 1 | `main()` starts | `n1=0, n2=0, avg=0.0` |
+| 2 | Create `Scanner` object | `n1=0, n2=0, avg=0.0` |
+
+### Phase 2: Input
+| Step | Prompt shown | User enters | Variable State |
+|------|--------------|-------------|----------------|
+| 3 | `Enter two numbers:` | `10`, `20` | `n1=10, n2=20` |
+
+### Phase 3: Processing
+| Step | Calculation | Variable State |
+|------|-------------|----------------|
+| 4 | `avg = (10 + 20) / 2.0` | `avg=15.0` |
+
+### Phase 4: Output
+| Step | Console Output |
+|------|----------------|
+| 5 | `Average = 15.0` |
+
+### Phase 5: End
+| Step | Action |
+|------|--------|
+| 6 | `sc.close()` — program ends |
+
+## Arithmetic Operation — execution trace (sample input: n1=10, n2=4)
+
+### Phase 1: Start & Declaration
+| Step | Action | Variable State |
+|------|--------|----------------|
+| 1 | `main()` starts | `n1=0, n2=0, sum=0, diff=0, multi=0, div=0.0, rem=0.0` |
+| 2 | Create `Scanner` object | `n1=0, n2=0, sum=0, diff=0, multi=0, div=0.0, rem=0.0` |
+
+### Phase 2: Input
+| Step | Prompt shown | User enters | Variable State |
+|------|--------------|-------------|----------------|
+| 3 | `Enter two numbers:` | `10`, `4` | `n1=10, n2=4` |
+
+### Phase 3: Processing
+| Step | Calculation | Variable State |
+|------|-------------|----------------|
+| 4 | `sum = 10 + 4` | `sum=14` |
+| 5 | `diff = 10 - 4` | `diff=6` |
+| 6 | `multi = 10 * 4` | `multi=40` |
+| 7 | `div = (double) 10 / 4` | `div=2.5` |
+| 8 | `rem = 10 % 4` | `rem=2.0` |
+
+### Phase 4: Output
+| Step | Console Output |
+|------|----------------|
+| 9 | `Addition : 14` |
+| 10 | `Subtraction : 6` |
+| 11 | `Multiplication : 40` |
+| 12 | `Division : 2.5` |
+| 13 | `Remainder : 2.0` |
+
+### Phase 5: End
+| Step | Action |
+|------|--------|
+| 14 | `sc.close()` — program ends |
