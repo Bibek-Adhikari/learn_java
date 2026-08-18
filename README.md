@@ -58,6 +58,48 @@ flowchart TD
     I --> J([End])
 ```
 
+## Negative or Positive
+
+```mermaid
+flowchart TD
+    A([Start]) --> B["Declare int n"]
+    B --> C[/"Enter a number (n)"/]
+    C --> D{n > 0?}
+    D -- Yes --> E[/"Display 'Positive'"/]
+    D -- No --> F{n < 0?}
+    F -- Yes --> G[/"Display 'Negative'"/]
+    F -- No --> H[/"Display 'Zero'"/]
+    E --> I([End])
+    G --> I
+    H --> I
+```
+
+## Citizenship Eligibility
+
+```mermaid
+flowchart TD
+    A([Start]) --> B["Declare int age"]
+    B --> C[/"Enter age"/]
+    C --> D{age >= 18?}
+    D -- Yes --> E[/"Display 'Eligible for citizenship'"/]
+    D -- No --> F[/"Display 'Not eligible for citizenship'"/]
+    E --> G([End])
+    F --> G
+```
+
+## Leap Year
+
+```mermaid
+flowchart TD
+    A([Start]) --> B["Declare int year"]
+    B --> C[/"Enter a year"/]
+    C --> D{"(year % 4 == 0 && year % 100 != 0) || year % 400 == 0?"}
+    D -- Yes --> E[/"Display 'Leap Year'"/]
+    D -- No --> F[/"Display 'Not a Leap Year'"/]
+    E --> G([End])
+    F --> G
+```
+
 # Program Execution (Step by Step)
 
 ## Simple Interest — execution trace (sample input: p=1000, t=2, r=5)
@@ -189,3 +231,106 @@ flowchart TD
 | Step | Action |
 |------|--------|
 | 14 | `sc.close()` — program ends |
+
+## Negative or Positive — execution trace (sample input: n=-5)
+
+### Phase 1: Start & Declaration
+| Step | Action | Variable State |
+|------|--------|----------------|
+| 1 | `main()` starts | `n=0` |
+| 2 | Create `Scanner` object | `n=0` |
+
+### Phase 2: Input
+| Step | Prompt shown | User enters | Variable State |
+|------|--------------|-------------|----------------|
+| 3 | `Enter a number:` | `-5` | `n=-5` |
+
+### Phase 3: Processing (Decision)
+| Step | Condition | Result |
+|------|-----------|--------|
+| 4 | `n > 0` → `-5 > 0`? | **False** |
+| 5 | `n < 0` → `-5 < 0`? | **True** → print Negative |
+
+### Phase 4: Output
+| Step | Console Output |
+|------|----------------|
+| 6 | `-5 is Negative` |
+
+### Phase 5: End
+| Step | Action |
+|------|--------|
+| 7 | `sc.close()` — program ends |
+
+**Other test cases:**
+| Input (n) | Condition Result | Console Output |
+|-----------|------------------|----------------|
+| `12` | `n > 0` → True | `12 is Positive` |
+| `0` | `n > 0` → False, `n < 0` → False | `Number is Zero` |
+
+## Citizenship Eligibility — execution trace (sample input: age=16)
+
+### Phase 1: Start & Declaration
+| Step | Action | Variable State |
+|------|--------|----------------|
+| 1 | `main()` starts | `age=0` |
+| 2 | Create `Scanner` object | `age=0` |
+
+### Phase 2: Input
+| Step | Prompt shown | User enters | Variable State |
+|------|--------------|-------------|----------------|
+| 3 | `Enter your age:` | `16` | `age=16` |
+
+### Phase 3: Processing (Decision)
+| Step | Condition | Result |
+|------|-----------|--------|
+| 4 | `age >= 18` → `16 >= 18`? | **False** → print Not eligible |
+
+### Phase 4: Output
+| Step | Console Output |
+|------|----------------|
+| 5 | `You are not eligible for citizenship` |
+
+### Phase 5: End
+| Step | Action |
+|------|--------|
+| 6 | `sc.close()` — program ends |
+
+**Other test case:**
+| Input (age) | Condition Result | Console Output |
+|-------------|------------------|----------------|
+| `21` | `age >= 18` → True | `You are eligible for citizenship` |
+
+## Leap Year — execution trace (sample input: year=2024)
+
+### Phase 1: Start & Declaration
+| Step | Action | Variable State |
+|------|--------|----------------|
+| 1 | `main()` starts | `year=0` |
+| 2 | Create `Scanner` object | `year=0` |
+
+### Phase 2: Input
+| Step | Prompt shown | User enters | Variable State |
+|------|--------------|-------------|----------------|
+| 3 | `Enter a year:` | `2024` | `year=2024` |
+
+### Phase 3: Processing (Decision)
+| Step | Condition | Result |
+|------|-----------|--------|
+| 4 | `2024 % 4 == 0` → True, `2024 % 100 != 0` → True | **True** → print Leap Year |
+
+### Phase 4: Output
+| Step | Console Output |
+|------|----------------|
+| 5 | `2024 is a Leap Year` |
+
+### Phase 5: End
+| Step | Action |
+|------|--------|
+| 6 | `sc.close()` — program ends |
+
+**Other test cases:**
+| Input (year) | Condition Result | Console Output |
+|--------------|------------------|----------------|
+| `2023` | `2023 % 4 == 0` → False, `2023 % 400 == 0` → False | `2023 is not a Leap Year` |
+| `2000` | `2000 % 4 == 0`, `2000 % 100 == 0`, `2000 % 400 == 0` → True | `2000 is a Leap Year` |
+| `1900` | `1900 % 4 == 0`, `1900 % 100 == 0`, `1900 % 400 == 0` → False | `1900 is not a Leap Year` |
